@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Square from './Square';
 import Knight from './Knight';
+import { canMoveKnight, moveKnight } from './Game';
 
 export default class Board extends Component {
   static propTypes = {
@@ -19,13 +20,20 @@ export default class Board extends Component {
 
     return (
       <div key={i}
-           style={{ width: '12.5%', height: '12.5%' }}>
+           style={{ width: '12.5%', height: '12.5%' }}
+           onClick={() => this.handleSquareClick(x, y)}>
         <Square black={black}>
           {piece}
         </Square>
       </div>
 
     );
+  }
+
+  handleSquareClick(toX, toY) {
+    if (canMoveKnight(toX, toY)) {
+      moveKnight(toX, toY);
+    }
   }
 
   render() {
