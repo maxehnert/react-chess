@@ -1,10 +1,3 @@
-// import React, { Component, PropTypes } from 'react';
-// import { DragDropContext } from 'react-dnd';
-// import HTML5Backend from 'react-dnd-html5-backend';
-// import BoardSquare from './BoardSquare';
-// //import Square from './Square';
-// import Knight from './Knight';
-// import { canMoveKnight, moveKnight } from './Game';
 import React, { Component, PropTypes } from 'react';
 import BoardSquare from './BoardSquare';
 import Knight from './Knight';
@@ -17,7 +10,6 @@ export default class Board extends Component {
       PropTypes.number.isRequired
     ).isRequired
   };
-
 
   renderSquare(i) {
     const x = i % 8;
