@@ -4,12 +4,17 @@ import { canMoveKnight, moveKnight } from './Game';
 import { ItemTypes } from './Constants';
 import { DropTarget } from 'react-dnd';
 
+import movePiece from './Reducers/movePiece';
+import canMovePiece from './Reducers/canMovePiece';
+
 const squareTarget = {
   canDrop(props) {
+    dispatch(canMovePiece(props.x, props.y));
     return canMoveKnight(props.x, props.y);
   },
 
   drop(props, monitor) {
+    dispatch(movePiece(prop.x, props.y));
     moveKnight(props.x, props.y);
   }
 };
